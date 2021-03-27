@@ -63,7 +63,7 @@ def login(request):
 def logout(request):
     if request.method == 'GET':
         return redirect('/')
-    elif request.session['userid']:
+    elif 'userid' in request.session:
         del request.session['userid']
         messages.success(request, "Succesfully logged out")
         return redirect('/')
